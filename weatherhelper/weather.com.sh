@@ -9,13 +9,12 @@ ICONS="/usr/share/conkycolors/icons/Weather"
 OUT="${HOME}/.conkycolors/weatherhelper/info"
 ICON_DST="${HOME}/.conkycolors/weatherhelper/icons"
 
-# make sure folders exist
+# prepare folders/files
 mkdir -p "$ICON_DST"
+echo -n > "$OUT"
 
 # get the weather
 wget --user-agent="Mozilla" "$TODAY" -O /tmp/weather.today.html
-
-echo -n > "$OUT"
 
 # get the current temperature
 tmp_f=$( grep -oP '(?<=<span class="wx-value" itemprop="temperature-fahrenheit">)[0-9]+([.][0-9]+)?' /tmp/weather.today.html )
