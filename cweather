@@ -8,8 +8,3 @@ ${voffset 100}${alignc}${execi 600 cat ~/.conkycolors/weatherhelper/info | grep 
 ${image ~/.conkycolors/weatherhelper/icons/now.png     -p  30,20  -s 100x100}
 ${image ~/.conkycolors/weatherhelper/icons/earlier.png -p  20,110 -s 45x45}
 ${image ~/.conkycolors/weatherhelper/icons/later.png   -p  90,110 -s 45x45}
-
-# ${voffset -100}${texeci 600 sh ~/.conkycolors/weatherhelper/mooninfo.sh}${voffset 100}\
-# ${voffset 125}${alignc}${execi 600 cat /tmp/moon.info | grep '^name:' | sed 's/name: //'}
-# ${voffset 3}${alignc}${execi 600 cat /tmp/moon.info | grep '^age:' | sed 's/age: //'}d, ${execi 600 cat /tmp/moon.info | grep '^percentage:' | sed 's/percentage: //'}%
-# ${image /tmp/moon.png -p 30,40 -s 80x80}
