@@ -41,3 +41,5 @@ default_bar_size 60 8
 draw_shades no
 draw_outline no
 stippled_borders 0
+
+default_color aaaaaa
