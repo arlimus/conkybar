@@ -42,4 +42,4 @@ draw_shades no
 draw_outline no
 stippled_borders 0
 
-default_color aaaaaa
+default_color 888888
