@@ -1,0 +1,43 @@
+# Conky settings
+update_interval 1
+total_run_times 0
+net_avg_samples 1
+cpu_avg_samples 1
+#if_up_strictness link
+
+imlib_cache_size 0
+double_buffer yes
+no_buffers yes
+
+format_human_readable
+
+# Text settings
+override_utf8_locale yes # force utf8
+text_buffer_size 2048    # increase from 256
+use_xft yes              # anti-aliasing
+xftfont Ubuntu:size=8    # xft font
+#xftfont Open Sans Light:size=8
+#xftfont Open Sans Condensed Light:size=8
+#xftfont AvantGarde LT ExtraLight:size=8
+xftalpha 0.8
+
+# Window specifications
+own_window_class Conky
+own_window_argb_visual yes
+own_window_argb_value 150
+own_window_transparent yes
+own_window yes
+## gnome 3:
+#own_window_type desktop
+#own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+# i3
+own_window_type override
+own_window_hints undecorated,below,skip_taskbar,skip_pager
+
+alignment tl
+default_bar_size 60 8
+
+# Graphics settings
+draw_shades no
+draw_outline no
+stippled_borders 0
