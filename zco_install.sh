@@ -3,7 +3,7 @@
 DESTINATION="${HOME}/.conkycolors"
 ZCO_SH="$DESTINATION/zco.sh"
 Y=550
-X=490
+X=520
 
 mkdir -p "$DESTINATION"
 
