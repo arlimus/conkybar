@@ -29,7 +29,8 @@ temp_helper(){
 }
 
 # get the current temperature
-temp_helper 'right_now' "$( grep -oP '(?<=<span class="wx-value" itemprop="temperature-fahrenheit">)[0-9]+([.][0-9]+)?' /tmp/weather.today.html )"
+TEMPS_TODAY="$( grep -P '"wx-temperature"' /tmp/weather.today.html | grep -oP "[0-9]+" )"
+temp_helper 'right_now' "$(echo ${TEMPS_TODAY}| awk '{print $1}')"
 
 ICONS_TODAY="$(cat /tmp/weather.today.html | grep "wx-weather-icon" | tail -n3 | grep -oP "[0-9]+[.]png")"
 cp "${ICONS}/$(echo ${ICONS_TODAY}| awk '{print $1}')" "$ICON_DST"/now.png
