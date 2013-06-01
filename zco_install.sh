@@ -34,7 +34,8 @@ do_script(){
 
 do_script background 0
 # install conky scripts
-for i in ctime cpower cnetwork cweather cmoon; do
+# for i in ctime cpower cnetwork cweather cmoon; do
+for i in ctime cpower cnetwork cweather; do
   do_script $i '$X'
 done
 
