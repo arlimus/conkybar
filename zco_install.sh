@@ -40,6 +40,6 @@ for i in ctime cpower cnetwork cweather; do
 done
 
 # install additional files
-for i in pngs weatherhelper; do
+for i in pngs weatherhelper scripts; do
   cp -r "$i" "$DESTINATION"/.
 done

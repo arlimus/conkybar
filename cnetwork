@@ -26,4 +26,4 @@ ${alignr}${color}${font} ${color2}${wireless_link_bar 8,73 wlan0}${color}
 # DISK
 ${voffset 5}\
 #${color1}${execpi 30 /usr/share/conkycolors/bin/conkyHD1}
-${color1}${execpi 30 /usr/share/conkycolors/bin/conkyHD2}
+${color1}${execpi 30 ~/.conkycolors/scripts/hd2}
