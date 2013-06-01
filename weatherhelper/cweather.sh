@@ -9,6 +9,6 @@ get(){
   fi
 }
 echo ''\
-'${voffset 108}${alignc}'$(get 'right_now_c')'°C'\
+'${voffset 108}${goto 70}'$(get 'right_now_c')'°C'\
 '${voffset 42}${goto 35}'$(get 'earlier_c')'°C'\
 '${voffset 0}${goto 112}'$(get 'later_c')'°C'
