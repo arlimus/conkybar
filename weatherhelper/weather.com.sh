@@ -16,15 +16,20 @@ echo -n > "$OUT"
 # get the weather
 wget --user-agent="Mozilla" "$TODAY" -O /tmp/weather.today.html
 
+temp_helper(){
+  name="$1"
+  temp_f="$2"
+  if test -n "$temp_f"; then
+    echo "${name}_f: $temp_f" >> "$OUT"
+    echo "${name}_c: $((($temp_f-32)*5/9))" >> "$OUT"
+  else
+    echo "${name}_f: ??" >> "$OUT"
+    echo "${name}_c: ??" >> "$OUT"
+  fi
+}
+
 # get the current temperature
-tmp_f=$( grep -oP '(?<=<span class="wx-value" itemprop="temperature-fahrenheit">)[0-9]+([.][0-9]+)?' /tmp/weather.today.html )
-if test -n "$tmp_f"; then
-  echo "right_now_f: $tmp_f" >> "$OUT"
-  echo "right_now_c: $((($tmp_f-32)*5/9))" >> "$OUT"
-else
-  echo "right_now_f: ??" >> "$OUT"
-  echo "right_now_c: ??" >> "$OUT"
-fi
+temp_helper 'right_now' "$( grep -oP '(?<=<span class="wx-value" itemprop="temperature-fahrenheit">)[0-9]+([.][0-9]+)?' /tmp/weather.today.html )"
 
 ICONS_TODAY="$(cat /tmp/weather.today.html | grep "wx-weather-icon" | tail -n3 | grep -oP "[0-9]+[.]png")"
 cp "${ICONS}/$(echo ${ICONS_TODAY}| awk '{print $1}')" "$ICON_DST"/now.png
