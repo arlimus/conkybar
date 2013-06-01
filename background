@@ -1,0 +1,8 @@
+# width: full
+
+minimum_size 2000 210
+
+TEXT
+${image pngs/white40.png -p 0,10 -s 2000x12 -n}\
+${image pngs/white40.png -p 0,180 -s 2000x12 -n}\
+${image pngs/white20.png -p 0,22 -s 2000x158 -n}
