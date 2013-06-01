@@ -1,6 +1,6 @@
 # width: 140
 
-minimum_size 160 210
+minimum_size 180 210
 
 TEXT
 ${voffset -100}${texeci 600 sh ~/.conkycolors/weatherhelper/weather.com.sh GMXX0010}${voffset 100}\
