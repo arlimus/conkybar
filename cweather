@@ -4,7 +4,7 @@ minimum_size 160 210
 
 TEXT
 ${voffset -100}${texeci 600 sh ~/.conkycolors/weatherhelper/weather.com.sh GMXX0010}${voffset 100}\
-${voffset 100}${alignc}${execi 600 cat ~/.conkycolors/weatherhelper/info | grep '^right_now_c:' | sed 's/right_now_c: //'}°C
+${voffset 105}${alignc}${execi 600 cat ~/.conkycolors/weatherhelper/info | grep '^right_now_c:' | sed 's/right_now_c: //'}°C
 ${image ~/.conkycolors/weatherhelper/icons/now.png     -p  30,20  -s 100x100}
 ${image ~/.conkycolors/weatherhelper/icons/earlier.png -p  20,110 -s 45x45}
 ${image ~/.conkycolors/weatherhelper/icons/later.png   -p  90,110 -s 45x45}
