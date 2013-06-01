@@ -1,0 +1,9 @@
+# width: 200
+
+minimum_size 140 210
+
+TEXT
+${voffset -100}${texeci 600 sh ~/.conkycolors/weatherhelper/mooninfo.sh}${voffset 100}\
+${voffset 125}${alignc}${execi 600 cat /tmp/moon.info | grep '^name:' | sed 's/name: //'}
+${voffset 3}${alignc}${execi 600 cat /tmp/moon.info | grep '^age:' | sed 's/age: //'}d, ${execi 600 cat /tmp/moon.info | grep '^percentage:' | sed 's/percentage: //'}%
+${image /tmp/moon.png -p 30,40 -s 80x80}

@@ -1,0 +1,10 @@
+# width: 310
+
+minimum_size 310 210
+
+# fonts: AvantGarde LT ExtraLight
+#        Open Sans Light 
+#        Lane - Narrow
+TEXT
+${color1}${font Open Sans Light :pixelsize=120}${alignc}${time %H}:${time %M}${font}
+${voffset 5}${font Open Sans Light :pixelsize=25}${alignc}${color1}${time %A, %d %b %Y}

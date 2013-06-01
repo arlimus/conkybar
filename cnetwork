@@ -1,0 +1,29 @@
+# width: 190
+
+minimum_size 190 210
+
+TEXT
+${voffset 31}\
+# NETWORK
+# symbols: up ${font Webdings:size=16}”
+#          down ${font Webdings:size=17}“
+#          network ${font Webdings:size=16}¬
+${if_up wlan0}
+${voffset -1}${color0}${font ConkyColors:size=16}v\
+${font}${color}${goto 32}${voffset -11}Up: ${alignr}${font Ubuntu:style=Bold:size=8}${color1}${upspeed wlan0}${color}${font} \
+${color2}${upspeedgraph wlan0 8,60 1E90FF 0084C8}${color}
+${voffset 0}${font}${color}${goto 32}Down: ${alignr}${font Ubuntu:style=Bold:size=8}${color1}${downspeed wlan0}${color}${font} \
+${color2}${downspeedgraph wlan0 8,60 1E90FF 0084C8}${color}
+${voffset 0}${font}${color}${goto 32}Local IP: ${alignr}${color2}${addr wlan0}
+${voffset 0}${font}${color}${goto 32}Public IP: ${alignr}${color2}${execi 10800 curl http://ipecho.net/plain 2>/dev/null}${color}
+# signal
+${voffset 7}${color0}${offset 2}${font ConkyColors:size=13}j\
+${font}${color}${goto 32}${voffset -2}Signal: \
+${alignr}${font Ubuntu:style=Bold:size=8}${color1}${wireless_link_qual_perc wlan0}%${color}${font} ${color2}${wireless_link_bar 8,60 wlan0}${color}
+# local / public ip
+# ${voffset 7}${color0}${font Webdings:size=16}¬${font}${color}${goto 32}${voffset -8}Local IP: ${alignr}${color2}${addr wlan0}${color}
+# ${goto 32}Public IP: ${alignr}${color2}${execi 10800 /usr/share/conkycolors/bin/conkyIp}${color}
+# DISK
+${voffset 5}\
+#${color1}${execpi 30 /usr/share/conkycolors/bin/conkyHD1}
+${color1}${execpi 30 /usr/share/conkycolors/bin/conkyHD2}

@@ -1,0 +1,30 @@
+# width: 220
+
+minimum_size 200 210
+
+TEXT
+${offset 20}${color1}${voffset 40}${font ConkyColorsLogos:size=19}a${font}${color}${goto 55}${voffset -14}Kernel:  ${alignr}${color2}${kernel}${color}
+${goto 55}Uptime: ${alignr}${color2}${uptime}${color}
+# |--CPU
+${voffset 2}${offset 22}${color1}${font ConkyColors:size=14}e${font}${offset -19}${voffset -6}\
+#${offset 1}${cpubar}${color}${voffset -16}
+${goto 55}${color}CPU1: ${font Ubuntu:style=Bold:size=8}${alignr}${color1}${cpu cpu1}% ${color1}${cpubar cpu1}
+${goto 55}${color}CPU2: ${font Ubuntu:style=Bold:size=8}${alignr}${color1}${cpu cpu2}% ${color1}${cpubar cpu2}
+${goto 55}${color}CPU3: ${font Ubuntu:style=Bold:size=8}${alignr}${color1}${cpu cpu3}% ${color1}${cpubar cpu3}
+${goto 55}${color}CPU4: ${font Ubuntu:style=Bold:size=8}${alignr}${color1}${cpu cpu4}% ${color1}${cpubar cpu4}
+${goto 55}${color}Temp: ${font Ubuntu:style=Bold:size=8}${alignr}\
+${color1}${color1}${execi 30 sensors | grep 'Core\s*0' | grep -oP "[+-]?[0-9]+(?=[.][0-9]*°C)" | tr -d '+' | head -n1}°C  \
+${color1}${color1}${execi 30 sensors | grep 'Core\s*1' | grep -oP "[+-]?[0-9]+(?=[.][0-9]*°C)" | tr -d '+' | head -n1}°C
+#' # |--MEM
+${voffset 0}${offset 20}${color1}${font ConkyColors:size=14}g${font}${color}${voffset 2}\
+${goto 55}${voffset -7}RAM: ${alignr}${color1}${mem} ${font Ubuntu:style=Bold:size=8}${color1}${membar}${color}${font}
+# ${voffset 1}${offset 21}${voffset 2}${color0}${membar 24,18}${color}\
+# ${goto 55}${voffset -2}F: ${font Ubuntu:style=Bold:size=8}${color2}${memeasyfree}${color}${font} U: ${font Ubuntu:style=Bold:size=8}${color2}${mem}${color}${font}
+# # |--BATTERY
+${if_existing /sys/class/power_supply/BAT0}\
+${color1}${offset 20}${font ConkyColors:size=13}3${font}${color}\
+${goto 55}${voffset -5}Battery:${alignr}${font Ubuntu:style=Bold:size=8}${color1}${battery_percent BAT0}%${color}${font} ${color4}${battery_bar BAT0 8,60}${color}\
+${else}\
+${color1}${font ConkyColors:size=13}3${font}${color}\
+${goto 55}${voffset -5}Battery: ${font Ubuntu:style=Bold:size=8}${color4}Unknown Status${color}${font}\
+${endif}
