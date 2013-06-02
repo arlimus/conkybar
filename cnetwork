@@ -11,9 +11,9 @@ ${voffset 31}\
 ${if_up wlan0}
 ${voffset -1}${color0}${font ConkyColors:size=16}v\
 ${font}${color}${goto 32}${voffset -11}Up: ${alignr}${color}${font} \
-${color2}${upspeedgraph wlan0 8,73 1E90FF 0084C8}${color}
+${color2}${upspeedgraph wlan0 8,73 color2 color2}${color}
 ${voffset 0}${font}${color}${goto 32}Down: ${alignr}${color}${font} \
-${color2}${downspeedgraph wlan0 8,73 1E90FF 0084C8}${color}
+${color2}${downspeedgraph wlan0 8,73 color2 color2}${color}
 ${voffset 2}${font}${color}${goto 32}Local IP: ${alignr}${color2}${addr wlan0}
 ${voffset 2}${font}${color}${goto 32}Public IP: ${alignr}${color2}${execi 10800 curl http://ipecho.net/plain 2>/dev/null}${color}
 # signal
