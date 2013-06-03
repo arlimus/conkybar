@@ -10,4 +10,12 @@ module Conkybar
     File::write f, r
     puts "done (set net to #{dev})"
   end
+
+  def set_weather_code location, weather_file = 'cweather'
+    f = File::expand_path(File::join(INSTALL_PATH,weather_file))
+    r = File::read(f).
+      gsub(/(weatherhelper\/weather.com.sh)\s+[A-Z0-9]+/,"\\1 #{location}")
+    File::write f, r
+    puts "done (set weather location to #{location})"
+  end
 end

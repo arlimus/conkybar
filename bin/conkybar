@@ -10,5 +10,15 @@ class ConkybarCLI < Thor
     set_net_device dev
   end
 
+  WEATHER_LOCATIONS = {
+    bonn: 'GMXX0010',
+    berlin: 'GMXX0007',
+  }
+
+  desc "weather <location>", "change weather location"
+  def weather location
+    set_weather_code( WEATHER_LOCATIONS[location.to_sym] || location )
+  end
+
 end
 ConkybarCLI.start(ARGV)
