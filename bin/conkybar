@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+require 'conkybar'
+require 'thor'
+
+class ConkybarCLI < Thor
+  include Conkybar
+
+  desc "net <device>", "change visible network device"
+  def net dev
+    set_net_device dev
+  end
+
+end
+ConkybarCLI.start(ARGV)
