@@ -21,15 +21,21 @@ chmod +x "$ZCO_SH"
 do_script(){
   name="$1"
   xoffset="$2"
+
   # check if the file exists
   test ! -f "$name" && echo "can't find file: ${name}, aborting!" && exit 0
+
   # get the width of this element
   width=$(head -n1 "$name" | grep -oP "[0-9]+")
+
   # install script with template
   cp zco_template "$DESTINATION/$name"
   cat "$name" >> "$DESTINATION/$name"
+
   # update runner
   echo 'conky -d -y $Y -x '$xoffset' -c "'$name'"' >> "$ZCO_SH"
+
+  # update the offset width
   if test -n "$width"; then
     echo 'X=$((X+'$width'))' >> "$ZCO_SH"
   fi
