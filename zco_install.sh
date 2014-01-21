@@ -17,9 +17,10 @@ X="${X}"
 EOF
 chmod +x "$ZCO_SH"
 
+# installation helper for all scripts
 do_script(){
   name="$1"
-  x="$2"
+  xoffset="$2"
   # check if the file exists
   test ! -f "$name" && echo "can't find file: ${name}, aborting!" && exit 0
   # get the width of this element
@@ -28,13 +29,16 @@ do_script(){
   cp zco_template "$DESTINATION/$name"
   cat "$name" >> "$DESTINATION/$name"
   # update runner
-  echo 'conky -d -y $Y -x '$x' -c "'$name'"' >> "$ZCO_SH"
+  echo 'conky -d -y $Y -x '$xoffset' -c "'$name'"' >> "$ZCO_SH"
   if test -n "$width"; then
     echo 'X=$((X+'$width'))' >> "$ZCO_SH"
   fi
 }
 
+# install the background and adjust size
 do_script background 0
+sed -i "s/WIDTH/$WIDTH/" "$DESTINATION/background"
+
 # install conky scripts
 # for i in ctime cpower cnetwork cweather cmoon; do
 for i in ctime cpower cnetwork cweather; do
