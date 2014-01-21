@@ -13,6 +13,7 @@ class ConkybarCLI < Thor
   WEATHER_LOCATIONS = {
     bonn: 'GMXX0010',
     berlin: 'GMXX0007',
+    mainz: 'GMBY5236',
   }
 
   desc "weather <location>", "change weather location"
