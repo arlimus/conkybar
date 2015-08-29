@@ -2,9 +2,17 @@
 
 DESTINATION="${HOME}/.conkycolors"
 ZCO_SH="$DESTINATION/zco.sh"
-Y=750
-X=1020
-WIDTH=1920
+DEFAULT_WIDTH=1920
+DEFAULT_HEIGHT=1080
+read -e -p "Enter width of screen: " -i $DEFAULT_WIDTH WIDTH
+read -e -p "Enter height of screen: " -i $DEFAULT_HEIGHT HEIGHT
+X=$(expr $WIDTH - 900)
+Y=$(expr 1080 \* 2 / 3 + 30)
+echo "Install at $WIDTH x $HEIGHT"
+echo "  ==> Position to ( $X , $Y )"
+echo "Install to $DESTINATION"
+read -p "Start installation? [yn] " yesno
+test ! "$yesno" = "y" && echo "Aborting." && exit 0
 STARTUP_DELAY=1
 
 mkdir -p "$DESTINATION"
