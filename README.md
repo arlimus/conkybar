@@ -1,12 +1,12 @@
 # conkybar
 
-Conky theme on top of conky-colors. Provides a horizontal theme.
+Opinionated conky theme.
 
-Installation:
+**Installation**
 
-* install conky-colors
-* copy contents of this folder to ~/.conkycolors
-* run ~/.conkycolors/zco.sh on startup
+* install conky-lua
+* run ./zco_install.sh
+* start by running ~/.conkycolors/zco.sh
 
 
 References: Conky-colors for a great toolchain for conky!
