@@ -25,6 +25,6 @@ ${if_existing /sys/class/power_supply/BAT0}\
 ${color1}${offset 20}${font ConkyColors:size=13}3${font}${color}\
 ${goto 55}${voffset -5}Battery:${alignr}${font Ubuntu:style=Bold:size=8}${color1}${battery_percent BAT0}%${color}${font} ${color4}${battery_bar BAT0 8,60}${color}\
 ${else}\
-${color1}${font ConkyColors:size=13}3${font}${color}\
-${goto 55}${voffset -5}Battery: ${font Ubuntu:style=Bold:size=8}${color4}Unknown Status${color}${font}\
+${color1}${offset 20}${font ConkyColors:size=13}3${font}${color}\
+${goto 55}${voffset -5}Battery: ${font Ubuntu:style=Bold:size=8}${color4}${alignr}Unknown Status${color}${font}\
 ${endif}
