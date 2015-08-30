@@ -2,6 +2,8 @@
 
 Opinionated conky theme.
 
+![screenshot](conkyscreenshot.png)
+
 **Installation**
 
 * install conky-lua
